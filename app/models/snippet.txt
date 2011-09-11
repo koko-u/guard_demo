@@ -1,0 +1,13 @@
+article.rb
+
+validates :title, :name, :presence => true
+
+
+article_spec.rb
+
+  context "必須項目の確認" do 
+    subject { Article.new }
+    it { should be_invalid }
+    it { should have(1).error_on(:title) }
+    it { should have(1).error_on(:name) }
+  end
